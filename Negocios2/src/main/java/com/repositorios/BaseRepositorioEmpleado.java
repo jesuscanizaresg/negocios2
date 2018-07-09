@@ -1,4 +1,6 @@
 package com.repositorios;
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
@@ -11,10 +13,10 @@ import com.entidades.Empleado2;
  */
 
 //NoRepositoryBean: Esta etiqueta asegura que Spring Data JPA no intente crear una implementación de nuestro interfaz repositorio base
+//Transactional, desde base, crea los procesos como transactionales.
 @NoRepositoryBean
 //public interface BaseRepositorioEmpleado <T, ID extends Serializable> extends JpaRepository<T, ID>
 public interface BaseRepositorioEmpleado extends JpaRepository<Empleado2, Integer> {
-	
 
 
 }

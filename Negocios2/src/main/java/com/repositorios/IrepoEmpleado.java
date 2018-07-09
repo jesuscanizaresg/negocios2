@@ -8,6 +8,9 @@ import com.entidades.Empresa2;
 import com.entidades.Empleado2;
 import java.util.List;
 
+
+
+
 /*
  * Repositorio central que usará el programa para crear operaciones.
  * Extiende la base, con operaciones de Repository,CRUDrepository,JPArepository....
@@ -16,6 +19,7 @@ import java.util.List;
  */
 @Repository
 public interface IrepoEmpleado extends BaseRepositorioEmpleado,ImpRepoEmpleado {
+	
 
 	Empleado2 findByNombreEmpleado(String nombreEmpleado);
 

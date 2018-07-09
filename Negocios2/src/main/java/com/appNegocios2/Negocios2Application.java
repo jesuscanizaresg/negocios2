@@ -9,13 +9,12 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.entidades.Empleado2;
 import com.entidades.Empresa2;
 import com.repositorios.IrepoEmpleado;
 import com.repositorios.IrepoEmpresa;
-import com.repositorios.implementacion.ImpRepoEmpleado;
+
 
 @SpringBootApplication
 @EnableAutoConfiguration
@@ -23,6 +22,8 @@ import com.repositorios.implementacion.ImpRepoEmpleado;
 @EntityScan("com.entidades")
 public class Negocios2Application implements CommandLineRunner{
 
+	int ee = 0;
+	
 	@Autowired
 	IrepoEmpleado repEmpleado;
 	
@@ -36,6 +37,7 @@ public class Negocios2Application implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
+		repEmpleado.truncateEmpleados2();
 		repEmpleado.deleteAll();
 		repositorioEmpresa.deleteAll();
 		
@@ -54,6 +56,49 @@ public class Negocios2Application implements CommandLineRunner{
 		System.out.println("Encontrado "+e2.getNombreEmpleado()+" que trabaja en: "+e2.getEmpresa2().getNombreEmpresa());
 		
 		System.out.println("Buscando empleado por nombre: "+repEmpleado.findEmpleadoByNombre("Antonio"));
+		
+		System.out.println("----------------------------------");
+		System.out.println("Buscando empleado por nombre native query resultado: "+repEmpleado.devuelveNombreEmpleado("Antonio"));
+		
+		System.out.println("----------------------------------");
+		
+		System.out.println("Se han encontrado: "+String.valueOf(repEmpleado.findByNombreEmpleadoOrIdEmpleados("Antoni", 22).size())+" empleados.");
+		//int tamañoLista = repEmpleado.findByNombreEmpleadoOrIdEmpleados("Antonio", 22).size();
+		
+		
+		
+		if(repEmpleado.findByNombreEmpleadoOrIdEmpleados("Antonio", 22).size() > 0) {
+			
+			repEmpleado.findByNombreEmpleadoOrIdEmpleados("Antonio", 22).forEach(empleado -> {
+				System.out.println("Encontrado empleado: "+(++ee) + " " + empleado.getNombreEmpleado());
+			});
+		}else {
+			System.out.println("No se han encontrado empleados");
+		}
+		
+		if(repEmpleado.findBySearchTermJPQL("Antonio").size() >0) {
+			repEmpleado.findBySearchTermJPQL("Antonio").forEach(empleadoEncontrado -> {
+				System.out.println("Encontrado empleado con metodo searchTermJPQL: " + empleadoEncontrado.getIdEmpleados()
+					+ " nombre: " + empleadoEncontrado.getNombreEmpleado()
+					+ " empresa: " + empleadoEncontrado.getEmpresa2().getNombreEmpresa());
+			});
+		}else {
+			System.out.println("No se han encontrado encpleados con serachtTermnJPQL");
+		}
+		
+		if(repEmpleado.findBySearchTermSQL("Antonio").size() >0) {
+			repEmpleado.findBySearchTermSQL("Antonio").forEach(empleadoEncontrado -> {
+				System.out.println("Encontrado empleado con metodo searchTermSQL: " + empleadoEncontrado.getIdEmpleados()
+					+ " nombre: " + empleadoEncontrado.getNombreEmpleado()
+					+ " empresa: " + empleadoEncontrado.getEmpresa2().getNombreEmpresa());
+			});
+		}else {
+			System.out.println("No se han encontrado encpleados con serachtTermnJPQL");
+		}
+		
+		
+		
+		
 		
 	}
 }
