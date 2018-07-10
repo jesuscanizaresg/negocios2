@@ -10,10 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+
 import com.entidades.Empleado2;
 import com.entidades.Empresa2;
+import com.repositorios.InterfaceRepoEmpresa;
 import com.repositorios.IrepoEmpleado;
-import com.repositorios.IrepoEmpresa;
 
 
 @SpringBootApplication
@@ -28,7 +29,7 @@ public class Negocios2Application implements CommandLineRunner{
 	IrepoEmpleado repEmpleado;
 	
 	@Autowired
-	IrepoEmpresa repositorioEmpresa;
+	InterfaceRepoEmpresa repositorioEmpresa;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Negocios2Application.class, args);
@@ -96,8 +97,10 @@ public class Negocios2Application implements CommandLineRunner{
 			System.out.println("No se han encontrado encpleados con serachtTermnJPQL");
 		}
 		
+		System.out.println("------------------------------------------------");
+		System.out.println("Empresa------------------ Consultas");
 		
-		
+		//System.out.println("Buscando empresa por nombre en interfaz....."+repositorioEmpresa.dev
 		
 		
 	}

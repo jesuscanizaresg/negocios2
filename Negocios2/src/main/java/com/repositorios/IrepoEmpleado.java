@@ -3,7 +3,7 @@ package com.repositorios;
 
 import org.springframework.stereotype.Repository;
 
-import com.repositorios.implementacion.ImpRepoEmpleado;
+import com.repositorios.implementacion.RepoEmpleadoImp;
 import com.entidades.Empresa2;
 import com.entidades.Empleado2;
 import java.util.List;
@@ -18,8 +18,9 @@ import java.util.List;
  * con acesso y manejo de entitymanager, natives query, JPQL querys y los churros de query.
  */
 @Repository
-public interface IrepoEmpleado extends BaseRepositorioEmpleado,ImpRepoEmpleado {
+public interface IrepoEmpleado extends BaseRepositorioEmpleado,RepoEmpleadoImp {
 	
+	//Interface con consultas directas generadas por la extensión de JPARepository
 
 	Empleado2 findByNombreEmpleado(String nombreEmpleado);
 
