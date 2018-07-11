@@ -1,6 +1,7 @@
 package com.repositorios;
 
-public interface InterfaceRepoEmpresa extends BaseRepositorioEmpresa {
+
+public interface InterfaceRepoEmpresa{
 	
-	
+	void prueba();
 }

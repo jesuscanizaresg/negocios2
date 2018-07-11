@@ -21,7 +21,7 @@ import com.repositorios.BaseRepositorioEmpleado;
  */
 
 @NoRepositoryBean
-public interface RepoEmpleadoImpl extends BaseRepositorioEmpleado {
+public interface ImpleRepoEmpleado extends BaseRepositorioEmpleado {
 
 	/*
 	 * Query de tipo básico, sin parámetros, directamente para meter en orden

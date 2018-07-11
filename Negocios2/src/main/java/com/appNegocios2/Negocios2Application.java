@@ -14,6 +14,7 @@ import com.repositorios.InterfaceRepoEmpresa;
 import com.entidades.Empleado2;
 import com.entidades.Empresa2;
 import com.repositorios.InterfaceRepoEmpresa;
+import com.repositorios.BaseRepositorioEmpresaJPA;
 import com.repositorios.InterfaceRepoEmpleado;
 
 
@@ -31,6 +32,9 @@ public class Negocios2Application implements CommandLineRunner{
 	@Autowired
 	InterfaceRepoEmpresa repositorioEmpresa;
 	
+	@Autowired
+	BaseRepositorioEmpresaJPA repositorioEmpresaJPA;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Negocios2Application.class, args);
 	}
@@ -40,11 +44,11 @@ public class Negocios2Application implements CommandLineRunner{
 
 		repEmpleado.truncateEmpleados2();
 		repEmpleado.deleteAll();
-		repositorioEmpresa.deleteAll();
+		repositorioEmpresaJPA.deleteAll();
 		
 		
 		Empresa2 empresa1 = new Empresa2("Amazon","955444887",null);
-		repositorioEmpresa.save(empresa1);
+		repositorioEmpresaJPA.save(empresa1);
 		
 		Empleado2 empleado1 = new Empleado2("Pezaeres", "Antonio", null);
 		empleado1.setEmpresa2(empresa1);
