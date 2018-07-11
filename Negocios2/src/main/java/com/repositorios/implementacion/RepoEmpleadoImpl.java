@@ -3,18 +3,12 @@ package com.repositorios.implementacion;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.entidades.Empleado2;
 import com.repositorios.BaseRepositorioEmpleado;
@@ -27,7 +21,7 @@ import com.repositorios.BaseRepositorioEmpleado;
  */
 
 @NoRepositoryBean
-public interface RepoEmpleadoImp extends BaseRepositorioEmpleado {
+public interface RepoEmpleadoImpl extends BaseRepositorioEmpleado {
 
 	/*
 	 * Query de tipo básico, sin parámetros, directamente para meter en orden

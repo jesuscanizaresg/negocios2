@@ -1,6 +1,5 @@
 package com.appNegocios2;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -8,13 +7,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-
+import com.repositorios.InterfaceRepoEmpresa;
 import com.entidades.Empleado2;
 import com.entidades.Empresa2;
 import com.repositorios.InterfaceRepoEmpresa;
-import com.repositorios.IrepoEmpleado;
+import com.repositorios.InterfaceRepoEmpleado;
 
 
 @SpringBootApplication
@@ -26,7 +26,7 @@ public class Negocios2Application implements CommandLineRunner{
 	int ee = 0;
 	
 	@Autowired
-	IrepoEmpleado repEmpleado;
+	InterfaceRepoEmpleado repEmpleado;
 	
 	@Autowired
 	InterfaceRepoEmpresa repositorioEmpresa;
@@ -100,8 +100,13 @@ public class Negocios2Application implements CommandLineRunner{
 		System.out.println("------------------------------------------------");
 		System.out.println("Empresa------------------ Consultas");
 		
-		//System.out.println("Buscando empresa por nombre en interfaz....."+repositorioEmpresa.dev
+		//System.out.println("Buscando empresa por nombre en interfaz....."+repositorioEmpresa.
 		
 		
 	}
+	
+//	@Bean
+//	app app1() {
+//		return new app();
+//	}
 }
