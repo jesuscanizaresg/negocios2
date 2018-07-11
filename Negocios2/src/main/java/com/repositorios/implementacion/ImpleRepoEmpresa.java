@@ -11,17 +11,17 @@ import com.repositorios.InterfaceRepoEmpresa;
 @Repository
 public abstract class ImpleRepoEmpresa implements InterfaceRepoEmpresa {
 
-	@Autowired
-	EntityManager entityMana;
+//	@Autowired
+//	EntityManager entityMana;
 	
 	
 	public ImpleRepoEmpresa() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void prueba() {
-		System.out.println("hola");
-	}
+//	public void prueba() {
+//		System.out.println("hola");
+//	}
 	
 //	public String devuelveNombreEmpresa(String nombreEmpresa) {
 //		

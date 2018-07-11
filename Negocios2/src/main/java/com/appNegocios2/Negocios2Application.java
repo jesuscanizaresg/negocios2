@@ -8,12 +8,12 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.repositorios.InterfaceRepoEmpresa;
 import com.entidades.Empleado2;
 import com.entidades.Empresa2;
-import com.repositorios.InterfaceRepoEmpresa;
 import com.repositorios.BaseRepositorioEmpresaJPA;
 import com.repositorios.InterfaceRepoEmpleado;
 
